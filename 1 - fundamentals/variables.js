@@ -2,6 +2,10 @@
 
 // var, let, const
 var x;
+
+var x = 1;
+var x = 4;
+
 var name = "Gerwin";
 
 // Camel Case Convention

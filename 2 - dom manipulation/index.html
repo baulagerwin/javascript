@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery List</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div id="card" class="card">
+            <div class="card-content">
+              <h4>Grocery List</h4>
+              <!-- <select name="" id="select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select> -->
+              <div class="row">
+                <form id="grocery-item-form">
+                  <h5
+                    id="grocery-mode-title"
+                    style="margin: 10px 0"
+                    class="col s12"
+                  >
+                    Add Grocery Item
+                  </h5>
+                  <div class="input-field col s12">
+                    <input
+                      type="text"
+                      name="grocery-item-name"
+                      id="grocery-item-name"
+                    />
+                    <label for="grocery-item-name">Name</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input
+                      type="text"
+                      name="grocery-item-description"
+                      id="grocery-item-description"
+                    />
+                    <label for="grocery-item-description">Description</label>
+                  </div>
+                  <div class="col s12">
+                    <input
+                      id="add-item-btn"
+                      type="submit"
+                      value="Add Item"
+                      class="btn"
+                    />
+                    <input
+                      id="edit-btn"
+                      type="button"
+                      value="Edit Item"
+                      class="btn light-blue darken-4"
+                      style="visibility: hidden"
+                    />
+                    <input
+                      id="cancel-btn"
+                      type="button"
+                      value="Cancel"
+                      class="btn red darken-3"
+                      style="visibility: hidden"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-action">
+              <div class="row">
+                <div class="col s12">
+                  <h5 id="grocery-title">Grocery Items</h5>
+                  <div class="input-field">
+                    <input type="text" name="filter" id="filter" />
+                    <label for="filter">Filter Items by Name</label>
+                  </div>
+                  <ul class="item-list collection">
+                    <li
+                      class="collection-item"
+                      id="item-0"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                      "
+                    >
+                      <div class="item-info">
+                        <h5 class="item-name">Item 1</h5>
+                        <span class="item-description">Description 1</span>
+                      </div>
+                      <div class="button-container">
+                        <a
+                          class="delete-item secondary-content"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-remove"> </i>
+                        </a>
+                        <a
+                          class="edit-item secondary-content"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                      </div>
+                    </li>
+                    <li
+                      class="collection-item"
+                      id="item-1"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                      "
+                    >
+                      <div class="item-info">
+                        <h5 class="item-name">Item 2</h5>
+                        <span class="item-description">Description 2</span>
+                      </div>
+                      <div class="button-container">
+                        <a
+                          class="delete-item secondary-content"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-remove"> </i>
+                        </a>
+                        <a
+                          class="edit-item secondary-content"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                      </div>
+                    </li>
+                    <li
+                      class="collection-item"
+                      id="item-2"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                      "
+                    >
+                      <div class="item-info">
+                        <h5 class="item-name">Item 3</h5>
+                        <span class="item-description">Description 3</span>
+                      </div>
+                      <div class="button-container">
+                        <a
+                          class="delete-item secondary-content"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-remove"> </i>
+                        </a>
+                        <a
+                          class="edit-item secondary-content"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-edit"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                  <a
+                    href="https://www.google.com/"
+                    id="clear-list-btn"
+                    class="clear-list btn black"
+                    >Clear List</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script defer src="document-object.js"></script> -->
+    <!-- <script defer src="single.js"></script> -->
+    <!-- <script defer src="multiple.js"></script> -->
+    <!-- <script defer src="traverse.js"></script> -->
+    <!-- <script defer src="inject.js"></script> -->
+    <!-- <script defer src="replace-and-remove.js"></script> -->
+    <!-- <script defer src="click.js"></script> -->
+    <!-- <script defer src="mouse.js"></script> -->
+    <!-- <script defer src="keyboard.js"></script> -->
+    <!-- <script defer src="bubbling.js"></script> -->
+    <script defer src="storage.js"></script>
+    <!-- <script defer src="app.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
