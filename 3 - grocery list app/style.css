@@ -1,0 +1,193 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  line-height: 1;
+  color: #343a40;
+}
+
+.grocery-list {
+  max-width: 82.5rem;
+  margin: 5rem auto;
+  padding: 5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0rem 0.4rem rgba(0, 0, 0, 0.3);
+}
+.grocery-list h1 {
+  font-size: 5rem;
+  margin-bottom: 6rem;
+  color: #087f5b;
+}
+.grocery-list h2 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+.grocery-list h3 {
+  font-size: 2.6rem;
+}
+.grocery-list .text-box {
+  position: relative;
+  font-size: 2rem;
+}
+.grocery-list .text-box__input {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 2rem;
+  border: 2px solid #343a40;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.grocery-list .text-box__input:focus, .grocery-list .text-box__input:valid {
+  border: 2px solid #087f5b;
+}
+.grocery-list .text-box__input:focus ~ span, .grocery-list .text-box__input:valid ~ span {
+  top: 0;
+  background-color: #087f5b;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+}
+.grocery-list .text-box__text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(1.5rem, -50%);
+  background-color: #fff;
+  padding: 1rem;
+  pointer-events: none;
+  transition: 0.2s;
+}
+.grocery-list .form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 5rem;
+  margin-bottom: 5rem;
+  border-bottom: 0.2rem dashed #087f5b;
+}
+.grocery-list .form .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.grocery-list .form .buttons__btn {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border: 2px solid #343a40;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: #343a40;
+  outline: none;
+  transition: 0.2s;
+}
+.grocery-list .form .buttons__btn--add:hover, .grocery-list .form .buttons__btn--add:focus {
+  border: 2px solid #087f5b;
+  background-color: #087f5b;
+  color: #fff;
+}
+.grocery-list .form .buttons__btn--edit {
+  display: none;
+}
+.grocery-list .form .buttons__btn--edit:hover, .grocery-list .form .buttons__btn--edit:focus {
+  border: 2px solid #087f5b;
+  background-color: #087f5b;
+  color: #fff;
+}
+.grocery-list .form .buttons__btn--cancel {
+  display: none;
+}
+.grocery-list .form .buttons__btn--cancel:hover, .grocery-list .form .buttons__btn--cancel:focus {
+  border: 2px solid #f03e3e;
+  background-color: #f03e3e;
+  color: #fff;
+}
+.grocery-list .grocery-items {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.grocery-list .grocery-items .item:first-child {
+  margin-top: 4rem;
+}
+.grocery-list .grocery-items .item {
+  display: grid;
+  grid-template-columns: 1fr repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  row-gap: 1rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0rem 0.4rem rgba(0, 0, 0, 0.3);
+  padding: 3rem 2rem;
+}
+.grocery-list .grocery-items .item__name {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.grocery-list .grocery-items .item__comment {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  font-size: 1.8rem;
+}
+.grocery-list .grocery-items .item .btn {
+  cursor: pointer;
+  width: 4rem;
+  border: none;
+  background-color: inherit;
+  outline: none;
+}
+.grocery-list .grocery-items .item .btn--edit {
+  grid-column: 2/3;
+  grid-row: 1/-1;
+}
+.grocery-list .grocery-items .item .btn--edit:focus .edit {
+  stroke: #087f5b;
+}
+.grocery-list .grocery-items .item .btn--edit .edit:hover {
+  stroke: #087f5b;
+}
+.grocery-list .grocery-items .item .btn--remove {
+  cursor: pointer;
+  grid-column: 3/4;
+  grid-row: 1/-1;
+}
+.grocery-list .grocery-items .item .btn--remove:focus .remove {
+  stroke: #f03e3e;
+}
+.grocery-list .grocery-items .item .btn--remove .remove:hover {
+  stroke: #f03e3e;
+}
+.grocery-list .reset {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+.grocery-list .reset .btn {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border: 2px solid #343a40;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: #343a40;
+  outline: none;
+  transition: 0.2s;
+}
+.grocery-list .reset .btn--reset:hover, .grocery-list .reset .btn--reset:focus {
+  border: 2px solid #343a40;
+  background-color: #343a40;
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

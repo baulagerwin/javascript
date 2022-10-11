@@ -4,98 +4,104 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Grocery List</title>
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col s12">
-          <div id="card" class="card">
-            <div class="card-content">
-              <h4>Grocery List</h4>
-              <div class="row">
-                <form id="grocery-item-form">
-                  <h5
-                    id="grocery-mode-title"
-                    style="margin: 10px 0"
-                    class="col s12"
-                  >
-                    Add Grocery Item
-                  </h5>
-                  <div class="input-field col s12">
-                    <input
-                      type="text"
-                      name="grocery-item-name"
-                      id="grocery-item-name"
-                    />
-                    <label for="grocery-item-name">Name</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <input
-                      type="text"
-                      name="grocery-item-description"
-                      id="grocery-item-description"
-                    />
-                    <label for="grocery-item-description">Description</label>
-                  </div>
-                  <div class="col s12">
-                    <input
-                      id="add-item-btn"
-                      type="submit"
-                      value="Add Item"
-                      class="btn"
-                    />
-                    <input
-                      id="edit-btn"
-                      type="button"
-                      value="Edit Item"
-                      class="btn light-blue darken-4"
-                      style="visibility: hidden"
-                    />
-                    <input
-                      id="cancel-btn"
-                      type="button"
-                      value="Cancel"
-                      class="btn red darken-3"
-                      style="visibility: hidden"
-                    />
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="card-action">
-              <div class="row">
-                <div class="col s12">
-                  <h5 id="grocery-title">Grocery Items</h5>
-                  <div class="input-field">
-                    <input type="text" name="filter" id="filter" />
-                    <label for="filter">Filter Items by Name</label>
-                  </div>
-                  <ul class="item-list collection"></ul>
-                  <a
-                    href="https://www.google.com/"
-                    id="clear-list-btn"
-                    class="clear-list btn black"
-                    >Clear List</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+    <section class="grocery-list">
+      <h1>Grocery List</h1>
+      <h2>ADD ITEM</h2>
+      <form class="form" action="">
+        <div class="text-box">
+          <input
+            id="item"
+            type="text"
+            class="text-box__input"
+            required="required"
+            autocomplete="off"
+          />
+          <span class="text-box__text">Item</span>
         </div>
+        <div class="text-box">
+          <input
+            id="comment"
+            type="text"
+            class="text-box__input"
+            required="required"
+            autocomplete="off"
+          />
+          <span class="text-box__text">Comment</span>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="buttons__btn buttons__btn--add">
+            Add Item
+          </button>
+          <button type="button" class="buttons__btn buttons__btn--edit">
+            Edit Item
+          </button>
+          <button type="button" class="buttons__btn buttons__btn--cancel">
+            Cancel
+          </button>
+        </div>
+      </form>
+      <h2>GROCERY ITEMS</h2>
+      <div class="text-box">
+        <input
+          id="filter"
+          type="text"
+          class="text-box__input"
+          required="required"
+        />
+        <span class="text-box__text">Filter Items</span>
       </div>
-    </div>
-    <script defer src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <ul class="grocery-items">
+        <!-- <li class="item">
+          <h3 class="item__name">Payong</h3>
+          <p class="item__comment">Para sa ulan</p>
+          <button class="btn btn--edit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 edit"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+              />
+            </svg>
+          </button>
+          <button class="btn btn--remove">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 remove"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+              />
+            </svg>
+          </button>
+        </li> -->
+      </ul>
+      <div class="reset">
+        <button type="button" class="btn btn--reset">Reset Item</button>
+      </div>
+    </section>
+    <script src="app.js"></script>
   </body>
 </html>

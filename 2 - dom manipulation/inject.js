@@ -1,5 +1,4 @@
 const groceryList = document.querySelector(".item-list");
-
 const groceryItem = document.createElement("li");
 
 groceryItem.setAttribute("class", "collection-item");
