@@ -7,24 +7,37 @@ const deleteButton = document.querySelector(".btn--delete");
 const resetButton = document.querySelector(".btn--reset");
 const filterInput = document.querySelector("#filter");
 const itemsTable = "items";
+let currentItem = null;
 
-window.addEventListener("DOMContentLoaded", function (event) {
-  if (!localStorage.getItem(itemsTable))
-    localStorage.setItem(itemsTable, JSON.stringify([]));
-  else {
-    const items = JSON.parse(localStorage.getItem(itemsTable));
-    items.forEach(function (item) {
-      appendItemToList(item.name, item.comment, false);
-    });
-  }
-
-  // console.log(JSON.parse(localStorage.getItem(itemsTable)));
-  event.preventDefault();
-});
-
+window.addEventListener("DOMContentLoaded", handleContentLoaded);
 form.addEventListener("submit", handleSubmitButton);
 resetButton.addEventListener("click", handleResetButton);
 filterInput.addEventListener("input", handleFilterInput);
+
+function handleContentLoaded(event) {
+  if (!localStorage.getItem(itemsTable)) {
+    localStorage.setItem(itemsTable, JSON.stringify([]));
+    return;
+  }
+
+  const items = JSON.parse(localStorage.getItem(itemsTable));
+  for (const item of items) appendItemToList(item.name, item.comment, false);
+  event.preventDefault();
+}
+
+function handleSubmitButton(event) {
+  let itemValue = itemInput.value;
+  let commentValue = commentInput.value;
+
+  appendItemToList(itemValue, commentValue);
+
+  itemInput.value = "";
+  itemInput.blur();
+  commentInput.value = "";
+  commentInput.blur();
+
+  event.preventDefault();
+}
 
 function appendItemToList(itemValue, commentValue, isStore = true) {
   const item = document.createElement("li");
@@ -86,7 +99,7 @@ function appendItemToList(itemValue, commentValue, isStore = true) {
   item.appendChild(itemName);
   item.appendChild(itemComment);
   item.appendChild(editButton);
-  item.append(deleteButton);
+  item.appendChild(deleteButton);
 
   groceryItems.appendChild(item);
 
@@ -99,23 +112,10 @@ function addItemToLocalStorage(itemValue, commentValue) {
   localStorage.setItem(itemsTable, JSON.stringify(items));
 }
 
-function handleSubmitButton(event) {
-  let itemValue = itemInput.value;
-  let commentValue = commentInput.value;
-
-  appendItemToList(itemValue, commentValue);
-
-  itemInput.value = "";
-  itemInput.blur();
-  commentInput.value = "";
-  commentInput.blur();
-
-  event.preventDefault();
-}
-
 function handleFilterInput(event) {
   const filterValue = event.target.value.toLowerCase();
   const items = document.querySelectorAll(".item");
+
   items.forEach(function (item) {
     const itemValue = item.querySelector(".item__name").innerHTML.toLowerCase();
     item.style.display = !itemValue.indexOf(filterValue) ? "grid" : "none";
@@ -128,6 +128,7 @@ function handleEditButton(event) {
   if (!event.target.classList.contains("edit")) return;
 
   let item = event.target.parentElement.parentElement;
+  currentItem = item;
 
   let itemName =
     event.target.parentElement.previousElementSibling.previousElementSibling
@@ -160,34 +161,72 @@ function handleEditButton(event) {
   confirmButton.setAttribute("type", "submit");
   cancelButton.style.display = "inline-block";
 
-  confirmButton.addEventListener("click", (event) =>
-    handleConfirmButton(event, item)
-  );
+  // The first two comments is SOOOOOOOOOOOOO WEEEEEEEEEEEEEEEIIIIIRD!
+  // confirmButton.addEventListener("click", function (event) {
+  //   // handleConfirmButton(event, item);
+  //   console.log("Something");
+  // });
+
+  // confirmButton.addEventListener("click", (event) => {
+  //   // handleConfirmButton(event, item);
+  //   console.log("Something");
+  // });
+
+  confirmButton.addEventListener("click", handleConfirmButton);
   cancelButton.addEventListener("click", handleCancelButton);
 
   event.preventDefault();
 }
 
-function handleConfirmButton(event, item) {
+function handleSomething(event) {
+  console.log("Something");
+
+  event.preventDefault();
+}
+
+function handleConfirmButton(event) {
   let itemValue = itemInput.value;
   let commentValue = commentInput.value;
 
+  // Getting the index of item
   const items = document.querySelectorAll(".item");
-  const index = Array.from(items).indexOf(item);
-  const itemsFromStorage = JSON.parse(localStorage.getItem(itemsTable));
-  itemsFromStorage[index] = { name: itemValue, comment: commentValue };
-  localStorage.setItem(itemsTable, JSON.stringify(itemsFromStorage));
+  const index = Array.from(items).indexOf(currentItem);
 
-  if (!itemValue || !commentValue || (!itemValue && !commentValue)) {
-    item.remove();
+  if (!itemValue || (!itemValue && !commentValue)) {
+    currentItem.remove();
     const itemsFromStorage = JSON.parse(localStorage.getItem(itemsTable));
     itemsFromStorage.splice(index, 1);
     localStorage.setItem(itemsTable, JSON.stringify(itemsFromStorage));
+
+    itemInput.value = "";
+    itemInput.blur();
+    commentInput.value = "";
+    commentInput.blur();
+
+    let addButton = event.target.previousElementSibling;
+    let confirmButton = event.target;
+    let cancelButton = event.target.nextElementSibling;
+    let h2 = event.target.parentElement.parentElement.previousElementSibling;
+
+    addButton.style.display = "inline-block";
+    addButton.setAttribute("type", "submit");
+    confirmButton.style.display = "none";
+    confirmButton.setAttribute("type", "button");
+    cancelButton.style.display = "none";
+    h2.innerHTML = "Add Item".toUpperCase();
+    currentItem = null;
+
     event.preventDefault();
   }
 
-  item.firstElementChild.innerHTML = itemValue;
-  item.firstElementChild.nextElementSibling.innerHTML = commentValue;
+  // Updating the item and comment in view
+  currentItem.firstElementChild.innerHTML = itemValue;
+  currentItem.firstElementChild.nextElementSibling.innerHTML = commentValue;
+
+  // Updating the item and comment in localStorage
+  const itemsFromStorage = JSON.parse(localStorage.getItem(itemsTable));
+  itemsFromStorage[index] = { name: itemValue, comment: commentValue };
+  localStorage.setItem(itemsTable, JSON.stringify(itemsFromStorage));
 
   itemInput.value = "";
   itemInput.blur();
@@ -205,6 +244,7 @@ function handleConfirmButton(event, item) {
   confirmButton.setAttribute("type", "button");
   cancelButton.style.display = "none";
   h2.innerHTML = "Add Item".toUpperCase();
+  currentItem = null;
 
   event.preventDefault();
 }
@@ -226,6 +266,7 @@ function handleCancelButton(event) {
   confirmButton.setAttribute("type", "button");
   cancelButton.style.display = "none";
   h2.innerHTML = "Add Item".toUpperCase();
+  currentItem = null;
 
   event.preventDefault();
 }
@@ -251,5 +292,3 @@ function handleResetButton() {
   localStorage.clear();
   localStorage.setItem(itemsTable, JSON.stringify([]));
 }
-
-// Conditional margin in the resetButton when the list is not empty

@@ -118,8 +118,8 @@ body {
   flex-direction: column;
   gap: 3rem;
 }
-.grocery-list .grocery-items .item:first-child {
-  margin-top: 4rem;
+.grocery-list .grocery-items .item:last-child {
+  margin-bottom: 4rem;
 }
 .grocery-list .grocery-items .item {
   display: grid;
@@ -171,7 +171,6 @@ body {
   stroke: #f03e3e;
 }
 .grocery-list .reset {
-  margin-top: 4rem;
   display: flex;
   justify-content: center;
 }
@@ -190,4 +189,8 @@ body {
   border: 2px solid #343a40;
   background-color: #343a40;
   color: #fff;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4rem;
 }/*# sourceMappingURL=style.css.map */

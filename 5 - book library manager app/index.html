@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Book Library Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="section-book-library-manager">
+      <div class="container">
+        <h1>Book Library Manager</h1>
+        <h2>Add Book</h2>
+        <!-- <div class="alert failed">The book has not been added!</div> -->
+        <form class="form">
+          <div class="text-box">
+            <input
+              id="item"
+              type="text"
+              class="text-box__input"
+              required="required"
+              autocomplete="off"
+            />
+            <span class="text-box__text">Title</span>
+          </div>
+          <div class="text-box">
+            <input
+              id="comment"
+              type="text"
+              class="text-box__input"
+              required="required"
+              autocomplete="off"
+            />
+            <span class="text-box__text">Author</span>
+          </div>
+          <div class="text-box">
+            <input
+              id="comment"
+              type="text"
+              class="text-box__input"
+              required="required"
+              autocomplete="off"
+            />
+            <span class="text-box__text">ISBN</span>
+          </div>
+          <div class="buttons">
+            <button type="submit" class="btn btn--add">Add Book</button>
+            <button type="button" class="btn btn--edit">Edit Book</button>
+            <button type="button" class="btn btn--cancel">Cancel</button>
+          </div>
+        </form>
+
+        <!-- Table -->
+        <h2>Books</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>ISBN</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td>Harry Potter</td>
+              <td>J.K. Rowling</td>
+              <td>6254674</td>
+              <td>
+                <button type="button" class="btn--update">Update</button>
+              </td>
+              <td>
+                <button type="button" class="btn--remove">Remove</button>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>
