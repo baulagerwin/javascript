@@ -178,12 +178,6 @@ function handleEditButton(event) {
   event.preventDefault();
 }
 
-function handleSomething(event) {
-  console.log("Something");
-
-  event.preventDefault();
-}
-
 function handleConfirmButton(event) {
   let itemValue = itemInput.value;
   let commentValue = commentInput.value;

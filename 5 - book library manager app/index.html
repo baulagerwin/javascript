@@ -17,12 +17,12 @@
     <section class="section-book-library-manager">
       <div class="container">
         <h1>Book Library Manager</h1>
-        <h2>Add Book</h2>
-        <!-- <div class="alert failed">The book has not been added!</div> -->
+        <h2 class="subheading">Add Book</h2>
         <form class="form">
+          <!-- <div class="alert failed">The book has not been added!</div> -->
           <div class="text-box">
             <input
-              id="item"
+              id="title"
               type="text"
               class="text-box__input"
               required="required"
@@ -32,7 +32,7 @@
           </div>
           <div class="text-box">
             <input
-              id="comment"
+              id="author"
               type="text"
               class="text-box__input"
               required="required"
@@ -42,7 +42,7 @@
           </div>
           <div class="text-box">
             <input
-              id="comment"
+              id="isbn"
               type="text"
               class="text-box__input"
               required="required"
@@ -59,7 +59,7 @@
 
         <!-- Table -->
         <h2>Books</h2>
-        <table>
+        <table class="books-table">
           <thead>
             <tr>
               <th>Title</th>
@@ -69,21 +69,11 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <!-- <tr>
-              <td>Harry Potter</td>
-              <td>J.K. Rowling</td>
-              <td>6254674</td>
-              <td>
-                <button type="button" class="btn--update">Update</button>
-              </td>
-              <td>
-                <button type="button" class="btn--remove">Remove</button>
-              </td>
-            </tr> -->
-          </tbody>
+          <tbody class="table-body"></tbody>
         </table>
       </div>
     </section>
+    <!-- <script src="app.js"></script> -->
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

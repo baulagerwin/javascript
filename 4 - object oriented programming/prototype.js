@@ -23,7 +23,7 @@ let josh = new Person("John", "02-18-2003");
 
 console.log(peter);
 console.log(josh);
-console.log(peter.hasOwnProperty("hasAge"));
-console.log(peter.hasOwnProperty("name"));
+console.log(`hasOwnProperty("getAge") ` + peter.hasOwnProperty("getAge"));
+console.log(`hasOwnProperty("name") ` + peter.hasOwnProperty("name"));
 
-// Instance of Peron -> Person.prototype -> Object.prototype
+// Instance of Person -> Person.prototype -> Object.prototype

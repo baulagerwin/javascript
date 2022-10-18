@@ -25,6 +25,7 @@ h1 {
 h2 {
   font-size: 3rem;
   margin-bottom: 4rem;
+  text-transform: uppercase;
 }
 
 h3 {
@@ -168,6 +169,8 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1.8rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 th,
@@ -195,12 +198,10 @@ thead tr {
   width: 20%;
 } */
 
-thead th:nth-child(4),
 thead th:nth-child(5),
-tr td:nth-child(4),
 tr td:nth-child(5) {
   /* width: 20%; */
-  padding: 0 1.2rem;
+  padding-right: 2rem;
 }
 
 tbody tr:nth-child(odd) {
@@ -215,7 +216,6 @@ tbody tr:nth-child(even) {
   font-size: 2rem;
   padding: 2rem;
   border-radius: 1rem;
-  margin-bottom: 1rem;
   color: #fff;
 }
 

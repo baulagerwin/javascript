@@ -10,15 +10,20 @@ Person.prototype.eat = function () {
 
 // Employee constructor
 function Employee(firstName, lastName, role, deskNumber) {
+  // equivalent of super keyword in java
   Person.call(this, firstName, lastName);
   this.role = role;
   this.deskNumber = deskNumber;
 }
 
+// The two assignments are equivalent to extends in java
+// The methods inside the Person.prototype is not accessible eg. eat()
 Employee.prototype = Object.create(Person.prototype);
+
+// The employee.prototype is missing in the hierarchy
 Employee.prototype.constructor = Employee;
 
 let employee = new Employee("Gerwin", "Baula", "Developer", 25);
-employee.eat();
 
 console.log(employee);
+// employee.eat();
