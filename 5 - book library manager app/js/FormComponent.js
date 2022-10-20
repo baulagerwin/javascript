@@ -28,17 +28,6 @@ export function FormComponent() {
       return;
     }
 
-    // if (!form.getTitle() && !form.getAuthor() && !form.getIsbn()) {
-    //   currentBook.remove();
-    //   form.showResult(
-    //     "Book has been removed since all fields are empty.",
-    //     false
-    //   );
-    //   form.clearFields();
-    //   form.setToAddMode();
-    //   return;
-    // }
-
     if (!form.getTitle()) {
       form.showResult("Title is empty.", false);
       return;
