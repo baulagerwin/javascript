@@ -20,7 +20,7 @@ function onSubmit(e) {
   if (!isEmailValid || !isPasswordValid) {
     const parentWidth = e.target.parentElement.offsetWidth;
     e.target.style.transform = `translateX(${Math.floor(
-      Math.random() * parentWidth
+      Math.random() * (parentWidth - e.target.offsetWidth)
     )}px)`;
     e.preventDefault();
     return;
@@ -82,7 +82,7 @@ function handleMouseOver(e) {
 
     const parentWidth = e.target.parentElement.offsetWidth;
     e.target.style.transform = `translateX(${Math.floor(
-      Math.random() * parentWidth
+      Math.random() * (parentWidth - e.target.offsetWidth)
     )}px)`;
     return;
   }
