@@ -193,4 +193,18 @@ body {
 
 .margin-bottom-md {
   margin-bottom: 4rem;
+}
+
+@media (max-width: 54.69em) {
+  .grocery-list {
+    margin: 2rem;
+  }
+}
+@media (max-width: 37.5em) {
+  html {
+    font-size: 43.75%;
+  }
+  .grocery-list {
+    padding: 4rem;
+  }
 }/*# sourceMappingURL=style.css.map */

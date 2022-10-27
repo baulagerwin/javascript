@@ -228,3 +228,23 @@ tbody tr:nth-child(even) {
 .alert.failed {
   background-color: #f03e3e;
 }
+
+.table-container {
+  overflow: scroll;
+}
+
+@media (max-width: 54.69em) {
+  .container {
+    margin: 4rem 2rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  html {
+    font-size: 43.75%;
+  }
+
+  .container {
+    padding: 4rem;
+  }
+}
